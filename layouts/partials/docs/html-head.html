@@ -33,6 +33,11 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
+<!-- css overrides -->
+{{ range .Site.Params.customCSS }}
+<link type="text/css" rel="stylesheet" href="{{ . |  resources.FromString . | resources.Minify | absURL }}">
+{{ end }}
+
 {{ "<!--" | safeHTML }}
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
