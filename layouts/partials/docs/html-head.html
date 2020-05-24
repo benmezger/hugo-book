@@ -39,7 +39,7 @@
 
 <!-- css overrides -->
 {{ range .Site.Params.customCSS }}
-<link type="text/css" rel="stylesheet" href="{{ . |  resources.FromString . | resources.Minify | absURL }}">
+<link type="text/css" rel="stylesheet" href="/{{ . |  resources.FromString . | resources.Minify }}">
 {{ end }}
 
 {{ "<!--" | safeHTML }}
